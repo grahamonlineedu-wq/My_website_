@@ -1,22 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jesse John - Portfolio</title>
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hyæt Views - Deep Threat Engine</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Developer Portfolio</h1>
-        <p>Full-stack developer specializing in modern web and mobile apps.</p>
+  <div class="app-container">
+    <header class="header">
+      <h1>Hyæt Views Engine</h1>
+      <p>Heuristic & Algorithmic Threat Detection</p>
     </header>
-    <main>
-        <section>
-            <h2>About Me</h2>
-            <p>Building scalable backend systems, secure architectures, and interactive digital experiences.</p>
-        </section>
+
+       <main class="main-content">
+      <!-- Mode Toggle Switcher -->
+      <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+        <button id="single-mode-btn" style="padding: 8px 16px; background-color: var(--yellow-cyber); color: #000; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">Single Scan</button>
+        <button id="batch-mode-btn" style="padding: 8px 16px; background-color: var(--bg-dark); color: var(--text-muted); border: 1px solid var(--border-color); font-weight: bold; border-radius: 4px; cursor: pointer; font-size: 0.85rem;">Batch Scan Mode</button>
+      </div>
+
+      <!-- Single Scan Form -->
+      <form id="scan-form">
+        <input type="text" id="scan-input" placeholder="Enter URL or IP address..." required />
+        <button type="submit" id="scan-btn">Run Deep Scan</button>
+      </form>
+
+      <!-- Batch Scan Form (Hidden by Default) -->
+      <form id="batch-form" style="display: none; flex-direction: column; gap: 10px; margin-bottom: 25px;">
+        <textarea id="batch-input" rows="5" placeholder="Paste multiple URLs here (one URL per line)..." style="width: 100%; padding: 12px; background: var(--bg-dark); border: 2px solid var(--border-color); border-radius: 6px; color: var(--text-main); font-size: 0.9rem; outline: none; resize: vertical;"></textarea>
+        <button type="submit" id="batch-scan-btn" style="padding: 12px; background-color: var(--yellow-cyber); color: #000; font-weight: bold; border: none; border-radius: 6px; cursor: pointer;">Run Batch Scan</button>
+      </form>
+
+      <!-- Single Metrics Grid -->
+      <div id="single-metrics" class="metrics-grid">
+        <div class="card">
+          <h3>Status</h3>
+          <p id="status-val" class="card-value">READY</p>
+        </div>
+        <div class="card">
+          <h3>Reputation Score</h3>
+          <p id="score-val" class="card-value">100 / 100</p>
+        </div>
+        <div class="card">
+          <h3>Threat Flags</h3>
+          <p id="threats-val" class="card-value">0</p>
+        </div>
+      </div>
+
+      <!-- Export Action Controls -->
+      <div id="export-controls" style="display: flex; gap: 10px; margin-bottom: 15px;">
+        <button id="download-json-btn" style="flex: 1; padding: 10px; background-color: var(--bg-dark); border: 1px solid var(--yellow-cyber); color: var(--yellow-cyber); font-weight: bold; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">📥 Download JSON Log</button>
+        <button id="copy-summary-btn" style="flex: 1; padding: 10px; background-color: var(--bg-dark); border: 1px solid var(--border-color); color: var(--text-main); font-weight: bold; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">📋 Copy Text Summary</button>
+      </div>
+
+      <!-- Threat Details Container -->
+      <div id="threat-details-container"></div>
+
+      <!-- Recent Scans History Section -->
+      <section id="history-section" style="margin-top: 30px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+          <h2 style="color: var(--yellow-cyber); font-size: 1.1rem; letter-spacing: 0.5px;">RECENT SCANS</h2>
+          <button id="clear-history-btn" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-muted); padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.8rem;">Clear Log</button>
+        </div>
+        <div id="history-list" style="display: flex; flex-direction: column; gap: 8px;">
+          <!-- Dynamically populated scan history entries -->
+        </div>
+      </section>
     </main>
-    <script src="./assets/js/app.js"></script>
+
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
+
+
