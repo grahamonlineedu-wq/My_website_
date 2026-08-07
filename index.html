@@ -129,6 +129,9 @@
             border-radius: 4px;
             border: none;
             cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
         }
         .btn-primary {
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
@@ -232,18 +235,20 @@
         .service-title { font-family: var(--font-heading); font-size: 1.2rem; margin-bottom: 1rem; }
         .service-description { color: var(--text-muted); font-size: 0.9rem; }
 
-        /* --- FOOTER --- */
+        /* --- FOOTER / CONTACT --- */
         .footer {
             background-color: var(--card-bg);
-            padding: 4rem 0;
+            padding: 6rem 0;
             border-top: 1px solid var(--border-color);
             text-align: center;
         }
         .footer-logo { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1.5rem; }
         .footer-logo span { color: var(--accent-primary); }
-        .social-list { display: flex; gap: 1.5rem; justify-content: center; margin-bottom: 2rem; }
-        .social-link:hover { color: var(--accent-primary); }
-        .footer-copy { font-size: 0.8rem; color: var(--text-muted); }
+        .footer-text { color: var(--text-muted); max-width: 400px; margin: 0 auto 3rem; font-size: 0.95rem; }
+        
+        .contact-btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        .footer-copy { font-size: 0.8rem; color: var(--text-muted); margin-top: 5rem; border-top: 1px solid var(--border-color); padding-top: 2rem;}
 
         /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
@@ -251,6 +256,7 @@
             .nav-list { display: none; }
             .hero-title { font-size: 2.5rem; }
             .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .hero-description { font-size: 1rem; }
         }
     </style>
 </head>
@@ -294,8 +300,9 @@
             <p class="section-subtitle">A snapshot of the engineer behind the code.</p>
             <div class="about-grid">
                 <div class="about-img-container">
-                    <!-- REPLACE THIS PLACEHOLDER WITH YOUR FINAL IMAGE -->
-                    <img src="img/profile_placeholder.png" alt="Jesse John" class="about-img" width="500" height="500">
+                    <!-- --- REPLACED IMAGE --- -->
+                    <!-- Save the generated profile image as 'profile_photo.jpg' in your img/ folder -->
+                    <img src="img/profile_photo.jpg" alt="Jesse John" class="about-img" width="500" height="500">
                 </div>
                 <div class="about-text">
                     <p>I am Jesse John, a highly motivated and skilled developer focused on delivering robust and scalable digital solutions.</p>
@@ -307,4 +314,148 @@
     </section>
 
     <!-- Skills Section -->
+    <section id="skills" class="skills section-padding">
+        <div class="container">
+            <h2 class="section-title">Capabilities: <span>02</span></h2>
+            <p class="section-subtitle">Core technical proficiencies and system architecture skills.</p>
+            <div class="skills-grid">
+                <div class="skill-card
+
+
+                <div class="skill-card">
+                    <div class="skill-icon">//</div>
+                    <h3 class="skill-title">Full-Stack Development</h3>
+                    <p class="skill-description">Building responsive, end-to-end web applications with modern frontend frameworks and robust backend servers.</p>
+                    <ul class="skill-list">
+                        <li class="skill-tag">HTML5</li>
+                        <li class="skill-tag">CSS3</li>
+                        <li class="skill-tag">JavaScript</li>
+                        <li class="skill-tag">Node.js</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">&lt;/&gt;</div>
+                    <h3 class="skill-title">System Architecture</h3>
+                    <p class="skill-description">Designing scalable backend systems, secure APIs, and optimized databases for high-performance applications.</p>
+                    <ul class="skill-list">
+                        <li class="skill-tag">Python</li>
+                        <li class="skill-tag">Rust</li>
+                        <li class="skill-tag">MongoDB</li>
+                        <li class="skill-tag">REST APIs</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">#</div>
+                    <h3 class="skill-title">Mobile & Tools</h3>
+                    <p class="skill-description">Developing custom applications and maintaining optimized local development workflows directly on mobile terminals.</p>
+                    <ul class="skill-list">
+                        <li class="skill-tag">Termux</li>
+                        <li class="skill-tag">Git / GitHub</li>
+                        <li class="skill-tag">Security Tools</li>
+                        <li class="skill-tag">UI/UX Layouts</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section-padding">
+        <div class="container">
+            <h2 class="section-title">Featured Work: <span>03</span></h2>
+            <p class="section-subtitle">A showcase of production code, utilities, and applications.</p>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <!-- --- REPLACED IMAGE --- -->
+                        <!-- Save the generated project image as 'project_nayan.png' in your img/ folder -->
+                        <img src="img/project_nayan.png" alt="Nayan Anti-Phish" class="project-img" width="400" height="250">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tech">
+                            <span class="project-tech-tag">SECURITY</span>
+                            <span class="project-tech-tag">PYTHON</span>
+                        </div>
+                        <h3 class="project-title">Nayan Anti-Phish</h3>
+                        <p class="project-description">A full-stack phishing link detection utility tool built to scan, analyze, and block malicious URL vectors.</p>
+                        <a href="#" class="project-link">Explore Code &rarr;</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img-container">
+                        <!-- --- REPLACED IMAGE --- -->
+                        <!-- Save the generated project image as 'project_aether.png' in your img/ folder -->
+                        <img src="img/project_aether.png" alt="Project AETHER" class="project-img" width="400" height="250">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tech">
+                            <span class="project-tech-tag">RUST</span>
+                            <span class="project-tech-tag">BACKEND</span>
+                        </div>
+                        <h3 class="project-title">Project AETHER</h3>
+                        <p class="project-description">Secure cross-platform communication software engineered with encrypted network protocol components.</p>
+                        <a href="#" class="project-link">Explore Code &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section-padding">
+        <div class="container">
+            <h2 class="section-title">Services: <span>04</span></h2>
+            <p class="section-subtitle">Professional technical solutions offered for modern digital enterprises.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">[ G ]</div>
+                    <h3 class="service-title">Graphic Design & Video</h3>
+                    <p class="service-description">Refined visual asset creation, digital branding identity elements, and dynamic media processing.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">[ W ]</div>
+                    <h3 class="service-title">Web Development</h3>
+                    <p class="service-description">Advanced front-end structures and optimized, future-proof full-stack web architecture.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">[ S ]</div>
+                    <h3 class="service-title">Software & Game Dev</h3>
+                    <p class="service-description">Custom mobile apps, system scripts, and tactile interactive gaming canvas loops.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">[ A ]</div>
+                    <h3 class="service-title">Engineering Solutions</h3>
+                    <p class="service-description">Precise linear logic engineering, data structuring, and secure backend pipeline configuration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section / Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h2 class="section-title">Connect: <span>05</span></h2>
+            <p class="footer-text">Let's discuss how my technical expertise can drive innovation and security for your next project.</p>
+            
+            <div class="contact-btn-group">
+                <!-- --- NEW INTERACTIVE BUTTONS --- -->
+                <!-- REPLACE 'your.email@domain.com' WITH YOUR ACTUAL EMAIL -->
+                <a href="mailto:your.email@domain.com" class="btn btn-primary">
+                    <i class="fas fa-envelope"></i> Send an Email
+                </a>
+                <!-- REPLACE 'your_telegram_username' WITH YOUR ACTUAL USERNAME -->
+                <a href="https://t.me/your_telegram_username" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-telegram"></i> Message on Telegram
+                </a>
+            </div>
+
+            <p class="footer-copy">&copy; 2026 Jesse John. All rights reserved. Built for high-performance scale.</p>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
 
