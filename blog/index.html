@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Insights | Blog by Jesse John</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Blog Styles - matching the portfolio aesthetic */
+        *, *::before, *::after { box-sizing: border-box; }
+        body, h1, h2, p { margin: 0; padding: 0; font-weight: normal; }
+        
+        :root {
+            --bg-color: #050509;
+            --card-bg: #0d0d14;
+            --text-main: #e0e0e5;
+            --text-muted: #9c9ca4;
+            --accent-primary: #00d2ff;
+            --border-color: #1c1c26;
+            --font-heading: 'Space Mono', monospace;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container { max-width: 900px; margin: 0 auto; }
+
+        /* Blog Header */
+        .blog-header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .blog-logo { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; }
+        .blog-logo span { color: var(--accent-primary); }
+        .back-link { font-family: var(--font-heading); font-size: 0.8rem; text-transform: uppercase; color: var(--text-muted); }
+        .back-link:hover { color: var(--accent-primary); }
+
+        /* Blog Post List */
+        .post-card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2rem;
+        }
+        .post-date { font-size: 0.8rem; color: var(--accent-primary); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; display: block;}
+        .post-title { font-size: 1.8rem; margin-bottom: 1rem; font-family: var(--font-heading); }
+        .post-snippet { color: var(--text-muted); margin-bottom: 1.5rem; }
+        .read-more { font-family: var(--font-heading); font-size: 0.8rem; text-transform: uppercase; color: var(--accent-primary); font-weight: 700;}
+        .read-more:hover { color: var(--text-main); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="blog-header">
+            <a href="#" class="blog-logo"><span>//</span> JESSE<span>.</span>BLOG</a>
+            <!-- This link goes back to your main portfolio -->
+            <a href="../" class="back-link">&larr; Back to Portfolio</a>
+        </header>
+
+        <main>
+            <article class="post-card">
+                <span class="post-date">Jan 15, 2026</span>
+                <h2 class="post-title">Optimizing Mobile Terminal Dev Workflows in Termux</h2>
+                <p class="post-snippet">Exploring advanced shell configurations, git integration, and remote server management directly from your Android device. The ultimate setup for portability and power.</p>
+                <a href="#" class="read-more">Read Full Article &rarr;</a>
+            </article>
+
+            <article class="post-card">
+                <span class="post-date">Dec 28, 2025</span>
+                <h2 class="post-title">The Architecture Behind Nayan Anti-Phish</h2>
+                <p class="post-snippet">A deep dive into the backend stack—Python, Rust components, and real-time threat intelligence pipelines—used to build a secure, scalable phishing detection utility.</p>
+                <a href="#" class="read-more">Read Full Article &rarr;</a>
+            </article>
+        </main>
+    </div>
+</body>
+</html>
+
