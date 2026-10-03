@@ -3,33 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Jesse John is a Software Developer and Cyber Security professional focused on secure, scalable digital solutions.">
+    <meta name="description" content="Jesse John is a software developer and cyber security specialist building secure, modern digital solutions.">
     <meta name="theme-color" content="#0a0e27">
     <title>Jesse John | Software Developer & Cyber Security</title>
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         *, *::before, *::after { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body, h1, h2, h3, p, ul { margin: 0; padding: 0; font-weight: normal; }
         :root {
             --bg-color: #0a0e27;
-            --bg-secondary: #0f1229;
-            --card-bg: #151a3a;
-            --text-main: #e4e9f7;
-            --text-muted: #9ca3af;
+            --bg-secondary: #121935;
+            --panel: rgba(21, 26, 58, 0.72);
+            --card: #151a3a;
+            --text-main: #edf2ff;
+            --text-muted: #a7b1ca;
             --accent-primary: #00d9ff;
-            --accent-secondary: #ff006e;
-            --accent-tertiary: #8338ec;
-            --border-color: #252d52;
+            --accent-secondary: #ff4d9d;
+            --accent-tertiary: #7b61ff;
+            --accent-success: #37d39a;
+            --border: rgba(151, 167, 255, 0.16);
+            --shadow: rgba(0, 0, 0, 0.32);
             --font-heading: 'Space Mono', monospace;
             --font-body: 'Inter', sans-serif;
             --font-code: 'JetBrains Mono', monospace;
         }
 
-        html { scroll-behavior: smooth; }
-
         body {
-            background: linear-gradient(135deg, var(--bg-color) 0%, var(--bg-secondary) 100%);
+            background:
+                radial-gradient(circle at 15% 20%, rgba(0, 217, 255, 0.14), transparent 18%),
+                radial-gradient(circle at 80% 15%, rgba(123, 97, 255, 0.16), transparent 18%),
+                linear-gradient(135deg, var(--bg-color) 0%, var(--bg-secondary) 100%);
             color: var(--text-main);
             font-family: var(--font-body);
             line-height: 1.6;
@@ -43,10 +48,10 @@
         button { font-family: inherit; }
 
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .section-padding { padding: 8rem 0; }
+        .section-padding { padding: 7rem 0; }
         .section-title {
             font-family: var(--font-heading);
-            font-size: 3.5rem;
+            font-size: clamp(2.2rem, 4vw, 3.6rem);
             text-align: center;
             margin-bottom: 1rem;
             letter-spacing: -0.5px;
@@ -54,24 +59,26 @@
             display: inline-block;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            font-weight: 700;
         }
         .section-title::after {
             content: '';
             display: block;
             width: 80px;
-            height: 5px;
+            height: 4px;
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
             margin: 1rem auto 0;
+            border-radius: 999px;
         }
         .section-subtitle {
             color: var(--text-muted);
             text-align: center;
             margin-bottom: 5rem;
             font-size: 1.15rem;
-            max-width: 650px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -82,10 +89,10 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(10, 14, 39, 0.92);
+            background: rgba(10, 14, 39, 0.82);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
         }
 
         .nav {
@@ -99,18 +106,26 @@
             font-family: var(--font-heading);
             font-size: 1.5rem;
             font-weight: 700;
+            letter-spacing: 0.3px;
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .nav-list { display: flex; gap: 3rem; font-size: 0.9rem; text-transform: uppercase; font-weight: 600; letter-spacing: 0.5px; }
-        .nav-link { position: relative; padding-bottom: 0.5rem; }
+        .nav-list {
+            display: flex;
+            gap: 2.4rem;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+        }
+        .nav-link { position: relative; color: var(--text-main); }
         .nav-link::after {
             content: '';
             position: absolute;
-            bottom: 0;
             left: 0;
+            bottom: -0.4rem;
             width: 0;
             height: 2px;
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
@@ -120,7 +135,7 @@
 
         .hero {
             margin-top: 80px;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -129,48 +144,54 @@
             overflow: hidden;
         }
 
+        .hero::before, .hero::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(28px);
+            z-index: 0;
+            opacity: 0.7;
+        }
         .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -20%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(0, 217, 255, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: -1;
+            width: 460px;
+            height: 460px;
+            right: -70px;
+            top: 80px;
+            background: rgba(0, 217, 255, 0.18);
         }
-
         .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -30%;
-            left: -15%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(131, 56, 236, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            z-index: -1;
+            width: 420px;
+            height: 420px;
+            left: -70px;
+            bottom: -20px;
+            background: rgba(123, 97, 255, 0.18);
         }
 
-        .hero-content { z-index: 1; max-width: 850px; }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 980px;
+        }
         .hero-eyebrow {
+            display: inline-block;
             font-family: var(--font-heading);
             color: var(--accent-primary);
-            font-size: 0.95rem;
+            font-size: 0.82rem;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
+            letter-spacing: 0.22rem;
             margin-bottom: 1.5rem;
-            display: block;
-            font-weight: 600;
+            padding: 0.7rem 1.5rem;
+            border: 1px solid rgba(0, 217, 255, 0.25);
+            border-radius: 999px;
+            background: rgba(0, 217, 255, 0.05);
         }
         .hero-title {
             font-family: var(--font-heading);
-            font-size: 4.5rem;
-            line-height: 1.1;
-            margin-bottom: 2rem;
+            font-size: clamp(2.8rem, 6vw, 5.4rem);
+            line-height: 1.08;
+            margin-bottom: 1.8rem;
+            letter-spacing: -0.06em;
             font-weight: 700;
-            letter-spacing: -1px;
         }
         .hero-title span {
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-tertiary), var(--accent-secondary));
@@ -178,182 +199,262 @@
             -webkit-text-fill-color: transparent;
         }
         .hero-description {
-            font-size: 1.25rem;
+            max-width: 760px;
+            margin: 0 auto 2.8rem;
             color: var(--text-muted);
-            margin-bottom: 3rem;
-            max-width: 650px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
+            font-size: 1.2rem;
+            font-weight: 400;
         }
 
-        .btn-group { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .btn-group { display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap; }
         .btn {
-            padding: 1.2rem 2.8rem;
-            font-family: var(--font-heading);
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            border-radius: 8px;
-            border: none;
-            cursor: pointer;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.7rem;
+            padding: 1.05rem 2.2rem;
+            border-radius: 12px;
+            border: 1px solid transparent;
+            font-family: var(--font-heading);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
             font-weight: 700;
-            letter-spacing: 0.5px;
-            transition: all 0.3s ease;
+            transition: all 0.25s ease;
         }
         .btn-primary {
             background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
-            color: #000;
-            box-shadow: 0 8px 24px rgba(0, 217, 255, 0.3);
+            color: #09111d;
+            box-shadow: 0 14px 30px rgba(0, 217, 255, 0.25);
         }
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 32px rgba(0, 217, 255, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 18px 35px rgba(0, 217, 255, 0.32);
         }
         .btn-secondary {
-            background-color: transparent;
-            border: 2px solid var(--border-color);
+            background: rgba(255,255,255,0.02);
+            border-color: var(--border);
             color: var(--text-main);
         }
         .btn-secondary:hover {
+            transform: translateY(-4px);
             border-color: var(--accent-primary);
             color: var(--accent-primary);
-            transform: translateY(-3px);
         }
 
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .about-img-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
-            min-height: 420px;
+        .stats-bar {
+            margin-top: 3rem;
             display: flex;
-            align-items: center;
             justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
-        .about-img-container .profile-badge {
-            font-size: 7rem;
-            color: rgba(255,255,255,0.9);
+        .stat-item {
+            min-width: 146px;
+            padding: 1rem 1.4rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            backdrop-filter: blur(8px);
         }
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.2rem;
+        }
+
+        .about-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: 4rem; align-items: center; }
+        .about-visual {
+            position: relative;
+            min-height: 420px;
+            border-radius: 22px;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.14), rgba(123, 97, 255, 0.18), rgba(255, 77, 157, 0.14));
+            border: 1px solid var(--border);
+            box-shadow: 0 28px 45px rgba(0,0,0,0.18);
+        }
+        .profile-card {
+            position: relative;
+            height: 100%;
+            border-radius: 18px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: end;
+            justify-content: start;
+            background:
+                linear-gradient(180deg, rgba(9, 17, 29, 0.1), rgba(9, 17, 29, 0.82)),
+                linear-gradient(135deg, rgba(0,217,255,0.7), rgba(123,97,255,0.7));
+            overflow: hidden;
+        }
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            inset: 18px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .profile-card .profile-pill {
+            position: relative;
+            z-index: 1;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.8rem 1rem;
+            border-radius: 999px;
+            background: rgba(8,13,26,0.45);
+            border: 1px solid rgba(255,255,255,0.12);
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-main);
+            backdrop-filter: blur(8px);
+        }
+
         .about-text p {
             color: var(--text-muted);
             margin-bottom: 2rem;
-            font-size: 1rem;
-            line-height: 1.8;
+            font-size: 1.03rem;
+            line-height: 1.9;
         }
         .about-text p:first-of-type {
-            font-size: 1.3rem;
+            font-size: 1.28rem;
             color: var(--text-main);
             font-weight: 600;
         }
 
+        .why-list {
+            display: grid;
+            gap: 0.9rem;
+            margin-top: 1rem;
+        }
+        .why-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+        .why-item .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            box-shadow: 0 0 18px rgba(0, 217, 255, 0.6);
+        }
+
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+            gap: 2rem;
         }
         .skill-card {
-            background: linear-gradient(135deg, rgba(21, 26, 58, 0.6), rgba(37, 45, 82, 0.4));
-            padding: 3rem;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(21, 26, 58, 0.7), rgba(37, 45, 82, 0.42));
+            padding: 2.6rem 2rem;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            transition: all 0.25s ease;
+            box-shadow: 0 16px 30px rgba(0, 0, 0, 0.14);
         }
         .skill-card:hover {
             transform: translateY(-8px);
-            border-color: var(--accent-primary);
-            box-shadow: 0 20px 40px rgba(0, 217, 255, 0.1);
+            border-color: rgba(0, 217, 255, 0.4);
+            box-shadow: 0 22px 36px rgba(0, 217, 255, 0.12);
         }
         .skill-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 2.3rem;
+            margin-bottom: 1.3rem;
             color: var(--accent-primary);
-            font-family: var(--font-code);
         }
         .skill-title {
             font-family: var(--font-heading);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
             font-weight: 700;
         }
         .skill-description {
             color: var(--text-muted);
-            font-size: 0.98rem;
-            margin-bottom: 2rem;
+            font-size: 0.95rem;
             line-height: 1.7;
+            margin-bottom: 1.7rem;
         }
-        .skill-list { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+        .skill-list { display: flex; flex-wrap: wrap; gap: 0.6rem; }
         .skill-tag {
             font-family: var(--font-code);
-            font-size: 0.8rem;
-            background: rgba(0, 217, 255, 0.1);
+            font-size: 0.75rem;
+            background: rgba(0, 217, 255, 0.08);
             color: var(--accent-primary);
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            border: 1px solid var(--border-color);
+            padding: 0.54rem 0.8rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
             font-weight: 600;
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
         }
         .project-card {
-            background: linear-gradient(135deg, rgba(21, 26, 58, 0.6), rgba(37, 45, 82, 0.4));
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(21, 26, 58, 0.7), rgba(37, 45, 82, 0.45));
+            border: 1px solid var(--border);
+            border-radius: 20px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            transition: all 0.25s ease;
+            box-shadow: 0 18px 30px rgba(0,0,0,0.12);
         }
         .project-card:hover {
-            border-color: var(--accent-secondary);
-            box-shadow: 0 20px 40px rgba(255, 0, 110, 0.1);
             transform: translateY(-8px);
+            border-color: rgba(255, 77, 157, 0.42);
+            box-shadow: 0 24px 40px rgba(255, 77, 157, 0.12);
         }
         .project-img-container {
-            height: 280px;
-            overflow: hidden;
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+            height: 260px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(255,255,255,0.9);
             font-size: 3.5rem;
+            color: rgba(255,255,255,0.92);
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary), var(--accent-secondary));
         }
-        .project-content { padding: 2.5rem; }
-        .project-tech { display: flex; gap: 0.7rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .project-content { padding: 2rem; }
+        .project-tech { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 1rem; }
         .project-tech-tag {
             font-family: var(--font-code);
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--accent-primary);
-            background: rgba(0, 217, 255, 0.1);
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
+            background: rgba(0, 217, 255, 0.08);
+            border: 1px solid var(--border);
+            padding: 0.42rem 0.68rem;
+            border-radius: 7px;
             font-weight: 600;
-            border: 1px solid var(--border-color);
         }
         .project-title {
             font-family: var(--font-heading);
             font-size: 1.4rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.7rem;
             font-weight: 700;
         }
         .project-description {
             color: var(--text-muted);
-            font-size: 0.98rem;
-            margin-bottom: 2rem;
-            line-height: 1.7;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-size: 0.96rem;
         }
         .project-link {
             font-family: var(--font-heading);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
+            letter-spacing: 0.08em;
             color: var(--accent-secondary);
             font-weight: 700;
             display: inline-flex;
@@ -367,121 +468,160 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 2rem;
         }
         .service-card {
             text-align: center;
-            padding: 3rem;
-            background: linear-gradient(135deg, rgba(21, 26, 58, 0.6), rgba(37, 45, 82, 0.4));
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            padding: 2.5rem 2rem;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background: linear-gradient(135deg, rgba(21, 26, 58, 0.7), rgba(37, 45, 82, 0.42));
+            transition: all 0.25s ease;
         }
         .service-card:hover {
-            border-color: var(--accent-tertiary);
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(131, 56, 236, 0.1);
+            border-color: rgba(123, 97, 255, 0.4);
+            box-shadow: 0 22px 34px rgba(123, 97, 255, 0.12);
         }
         .service-icon {
-            font-size: 3.5rem;
-            margin-bottom: 2rem;
+            font-size: 2.8rem;
+            margin-bottom: 1.4rem;
             color: var(--accent-tertiary);
-            font-family: var(--font-code);
         }
         .service-title {
             font-family: var(--font-heading);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.9rem;
             font-weight: 700;
         }
         .service-description {
             color: var(--text-muted);
-            font-size: 0.98rem;
+            line-height: 1.7;
+            font-size: 0.95rem;
+        }
+
+        .availability {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 2rem;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 217, 255, 0.08), rgba(123, 97, 255, 0.08));
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: clamp(1.4rem, 3vw, 2.7rem);
+        }
+        .availability-copy h3 {
+            font-family: var(--font-heading);
+            font-size: clamp(1.6rem, 2vw, 2.3rem);
+            margin-bottom: 0.8rem;
+        }
+        .availability-copy p {
+            color: var(--text-muted);
+            line-height: 1.8;
+            margin-bottom: 1.3rem;
+        }
+        .availability-card {
+            padding: 1.5rem;
+            border-radius: 16px;
+            background: rgba(9,17,29,0.45);
+            border: 1px solid var(--border);
+            box-shadow: 0 16px 26px rgba(0,0,0,0.17);
+        }
+        .availability-card .label {
+            display: inline-block;
+            color: var(--accent-success);
+            font-family: var(--font-code);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.7rem;
+        }
+        .availability-card .status {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+        .availability-card .small {
+            color: var(--text-muted);
             line-height: 1.7;
         }
 
         .footer {
-            background: linear-gradient(180deg, transparent, rgba(0, 217, 255, 0.05));
-            padding: 8rem 0 4rem;
-            border-top: 1px solid var(--border-color);
+            padding: 7rem 0 3rem;
+            border-top: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(15, 18, 41, 0.2), rgba(0, 0, 0, 0.16));
             text-align: center;
         }
         .footer-logo {
             font-family: var(--font-heading);
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
             background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            font-weight: 700;
+            margin-bottom: 1rem;
         }
         .footer-text {
+            max-width: 520px;
+            margin: 0 auto 2rem;
             color: var(--text-muted);
-            max-width: 500px;
-            margin: 0 auto 3rem;
-            font-size: 1rem;
-            line-height: 1.8;
+            line-height: 1.7;
         }
-
         .contact-btn-group {
             display: flex;
-            gap: 1.5rem;
             justify-content: center;
+            gap: 1rem;
             flex-wrap: wrap;
-            margin-bottom: 3rem;
         }
-
         .social-icon-grid {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 2rem;
-            margin: 3rem 0;
-            font-size: 1.8rem;
+            gap: 1.3rem;
+            margin: 2.5rem 0 1.8rem;
         }
         .social-icon-grid a {
-            color: var(--text-muted);
-            transition: all 0.3s ease;
-            width: 50px;
-            height: 50px;
+            width: 52px;
+            height: 52px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid var(--border-color);
             border-radius: 50%;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.02);
         }
         .social-icon-grid a:hover {
             color: var(--accent-primary);
             border-color: var(--accent-primary);
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0, 217, 255, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 217, 255, 0.18);
+        }
+        .footer-copy {
+            border-top: 1px solid var(--border);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            color: var(--text-muted);
+            font-size: 0.85rem;
         }
 
-        .footer-copy {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            margin-top: 5rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 2rem;
-            font-weight: 300;
+        @media (max-width: 900px) {
+            .about-grid, .availability { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
-            .section-title { font-size: 2.5rem; }
             .nav-list { display: none; }
-            .hero-title { font-size: 2.8rem; }
+            .section-padding { padding: 5.5rem 0; }
             .hero-description { font-size: 1.05rem; }
-            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .section-padding { padding: 5rem 0; }
+            .stats-bar { gap: 0.8rem; }
         }
 
         @media (max-width: 480px) {
-            .hero-title { font-size: 2rem; }
-            .section-title { font-size: 2rem; }
-            .btn { padding: 1rem 2rem; font-size: 0.85rem; }
-            .social-icon-grid { gap: 1.5rem; }
+            .btn { width: 100%; }
+            .btn-group { width: 100%; }
+            .container { padding: 0 1rem; }
+            .project-card, .skill-card, .service-card { border-radius: 16px; }
         }
     </style>
 </head>
@@ -506,10 +646,24 @@
             <div class="hero-content">
                 <span class="hero-eyebrow">Software Developer / Cyber Security</span>
                 <h1 class="hero-title">Secure Systems, <span>Powerful Products</span>, Modern Solutions</h1>
-                <p class="hero-description">I design and build secure, scalable digital experiences and software systems with a strong focus on cyber security, performance, and reliability.</p>
+                <p class="hero-description">I build secure, scalable digital experiences and software systems for businesses that value performance, reliability, and strong product thinking.</p>
                 <div class="btn-group">
                     <a href="#projects" class="btn btn-primary"><i class="fas fa-rocket"></i> View Projects</a>
-                    <a href="mailto:gramstechblog247@gmail.com" class="btn btn-secondary"><i class="fas fa-envelope"></i> Contact Me</a>
+                    <a href="mailto:gramstechblog247@gmail.com" class="btn btn-secondary"><i class="fas fa-envelope"></i> Hire Me</a>
+                </div>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label">Years Focus</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">20+</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Mindset</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -518,15 +672,22 @@
     <section id="about" class="about section-padding">
         <div class="container">
             <h2 class="section-title">About Me</h2>
-            <p class="section-subtitle">Focused on engineering secure solutions, resilient systems, and high-quality digital experiences.</p>
+            <p class="section-subtitle">I turn ideas into secure, practical digital products with a strong engineering mindset.</p>
             <div class="about-grid">
-                <div class="about-img-container">
-                    <div class="profile-badge"><i class="fas fa-user-shield"></i></div>
+                <div class="about-visual">
+                    <div class="profile-card">
+                        <div class="profile-pill"><i class="fas fa-user-shield"></i> Software Developer</div>
+                    </div>
                 </div>
                 <div class="about-text">
-                    <p>Hi, I'm Jesse John — a software developer and cyber security enthusiast focused on building secure, scalable digital systems.</p>
-                    <p>My work blends software engineering, web development, security principles, and product-minded thinking. I enjoy creating solutions that are not only functional but also reliable, efficient, and safe.</p>
-                    <p>From application development to threat-aware system design, I focus on delivering clean code, practical security measures, and user-centered experiences that help businesses and users thrive.</p>
+                    <p>Hi, I'm Jesse John — a software developer and cyber security-focused builder creating digital products that balance speed, usability, and protection.</p>
+                    <p>My work spans software engineering, secure application design, web systems, and practical security-first thinking. I enjoy solving complex technical challenges with elegant, maintainable solutions.</p>
+                    <div class="why-list">
+                        <div class="why-item"><span class="dot"></span> Security-aware build decisions</div>
+                        <div class="why-item"><span class="dot"></span> Clean, scalable architecture</div>
+                        <div class="why-item"><span class="dot"></span> Product-focused user experience</div>
+                        <div class="why-item"><span class="dot"></span> Reliable delivery and support</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -535,12 +696,12 @@
     <section id="skills" class="skills section-padding">
         <div class="container">
             <h2 class="section-title">Core Skills</h2>
-            <p class="section-subtitle">Development, security, and system design skills built for real-world products.</p>
+            <p class="section-subtitle">Development, security, and systems expertise designed for modern digital products.</p>
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
                     <h3 class="skill-title">Software Development</h3>
-                    <p class="skill-description">Building modern, reliable applications with clean architecture and responsive user interfaces.</p>
+                    <p class="skill-description">Building dependable products with clean architecture, responsive interfaces, and smooth functionality across devices.</p>
                     <ul class="skill-list">
                         <li class="skill-tag">HTML5</li>
                         <li class="skill-tag">CSS3</li>
@@ -552,19 +713,19 @@
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
                     <h3 class="skill-title">Cyber Security</h3>
-                    <p class="skill-description">Applying security-first thinking to systems, threat analysis, application protection, and safe digital practices.</p>
+                    <p class="skill-description">Security-first development practices, risk reduction, and safer system design for real-world digital solutions.</p>
                     <ul class="skill-list">
-                        <li class="skill-tag">Security Audits</li>
                         <li class="skill-tag">Threat Analysis</li>
                         <li class="skill-tag">Secure Design</li>
                         <li class="skill-tag">Risk Mitigation</li>
-                        <li class="skill-tag">System Hardening</li>
+                        <li class="skill-tag">Audits</li>
+                        <li class="skill-tag">Hardening</li>
                     </ul>
                 </div>
                 <div class="skill-card">
                     <div class="skill-icon"><i class="fas fa-tools"></i></div>
                     <h3 class="skill-title">Developer Workflow</h3>
-                    <p class="skill-description">Agile, version-controlled development with modern tooling and scalable deployment practices.</p>
+                    <p class="skill-description">Efficient product workflows with GitHub, scalable APIs, testing, and deployment best practices.</p>
                     <ul class="skill-list">
                         <li class="skill-tag">GitHub</li>
                         <li class="skill-tag">CI/CD</li>
@@ -580,7 +741,7 @@
     <section id="projects" class="projects section-padding">
         <div class="container">
             <h2 class="section-title">Featured Work</h2>
-            <p class="section-subtitle">Selected examples of secure software and practical engineering work.</p>
+            <p class="section-subtitle">Selected examples of secure software, digital products, and practical engineering work.</p>
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-img-container"><i class="fas fa-shield-virus"></i></div>
@@ -589,8 +750,8 @@
                             <span class="project-tech-tag">SECURITY</span>
                             <span class="project-tech-tag">PYTHON</span>
                         </div>
-                        <h3 class="project-title">Security Analysis Tool</h3>
-                        <p class="project-description">A practical security-oriented tool focused on identifying suspicious patterns and supporting safer digital workflows.</p>
+                        <h3 class="project-title">Threat Analysis Platform</h3>
+                        <p class="project-description">A security-focused application designed to identify suspicious activity patterns and improve visibility into risky digital behavior.</p>
                         <a href="https://github.com/grahamonlineedu-wq" class="project-link" target="_blank" rel="noopener noreferrer">GitHub <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -601,8 +762,8 @@
                             <span class="project-tech-tag">BACKEND</span>
                             <span class="project-tech-tag">API</span>
                         </div>
-                        <h3 class="project-title">API & Backend Systems</h3>
-                        <p class="project-description">Designing and implementing secure, scalable application services with real-world performance goals.</p>
+                        <h3 class="project-title">API Security System</h3>
+                        <p class="project-description">A scalable service architecture focused on access control, system resilience, and structured backend communication.</p>
                         <a href="https://github.com/grahamonlineedu-wq" class="project-link" target="_blank" rel="noopener noreferrer">GitHub <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -613,8 +774,8 @@
                             <span class="project-tech-tag">WEB</span>
                             <span class="project-tech-tag">RESPONSIVE</span>
                         </div>
-                        <h3 class="project-title">Modern Web Experience</h3>
-                        <p class="project-description">Responsive web experiences built for clarity, speed, conversion, and a strong user-first design language.</p>
+                        <h3 class="project-title">Modern Brand Experience</h3>
+                        <p class="project-description">A polished digital presence built to communicate technical credibility, professionalism, and product value.</p>
                         <a href="https://github.com/grahamonlineedu-wq" class="project-link" target="_blank" rel="noopener noreferrer">GitHub <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
@@ -625,27 +786,46 @@
     <section id="services" class="services section-padding">
         <div class="container">
             <h2 class="section-title">Services</h2>
-            <p class="section-subtitle">Practical solutions built for performance, security, and long-term reliability.</p>
+            <p class="section-subtitle">Practical development and security solutions built for businesses that value quality and resilience.</p>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-code"></i></div>
                     <h3 class="service-title">Web Development</h3>
-                    <p class="service-description">Modern website and application development with clean structure, responsiveness, and polished user experience.</p>
+                    <p class="service-description">Modern website and application development crafted for clarity, speed, and a strong user experience.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3 class="service-title">Software Engineering</h3>
-                    <p class="service-description">Custom software solutions for functionality, business logic, and scalable product delivery.</p>
+                    <p class="service-description">Custom software solutions with maintainable architecture and practical business value.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-lock"></i></div>
                     <h3 class="service-title">Cyber Security</h3>
-                    <p class="service-description">Security-focused guidance, analysis, and design decisions to reduce risk and harden digital systems.</p>
+                    <p class="service-description">Security-first design decisions, protection strategies, and safer execution of software systems.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon"><i class="fas fa-cogs"></i></div>
                     <h3 class="service-title">System Support</h3>
-                    <p class="service-description">Hands-on technical support, maintenance, and optimization for business-critical software environments.</p>
+                    <p class="service-description">Technical support, optimization, and maintenance for digital systems that need reliability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding">
+        <div class="container">
+            <div class="availability">
+                <div class="availability-copy">
+                    <h3>Why Hire Me</h3>
+                    <p>I combine technical execution with an awareness of security, reliability, and business purpose. I focus on solutions that look professional, work well, and scale with confidence.</p>
+                    <div class="btn-group" style="justify-content: flex-start; margin-top: 1rem;">
+                        <a href="mailto:gramstechblog247@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Book a Call</a>
+                    </div>
+                </div>
+                <div class="availability-card">
+                    <span class="label">Availability</span>
+                    <div class="status">Open</div>
+                    <div class="small">Available for software development, secure system work, web projects, and digital product collaborations.</div>
                 </div>
             </div>
         </div>
@@ -653,16 +833,11 @@
 
     <footer id="contact" class="footer">
         <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <p class="footer-text">Open to collaboration, software work, security-focused projects, and meaningful digital opportunities.</p>
-
+            <div class="footer-logo">JESSE JOHN</div>
+            <p class="footer-text">Open to meaningful software work, secure system opportunities, and digital collaborations that value quality and execution.</p>
             <div class="contact-btn-group">
-                <a href="mailto:gramstechblog247@gmail.com" class="btn btn-primary">
-                    <i class="fas fa-envelope"></i> Email Me
-                </a>
-                <a href="https://github.com/grahamonlineedu-wq" target="_blank" class="btn btn-secondary" rel="noopener noreferrer">
-                    <i class="fab fa-github"></i> GitHub
-                </a>
+                <a href="mailto:gramstechblog247@gmail.com" class="btn btn-primary"><i class="fas fa-envelope"></i> Email Me</a>
+                <a href="https://github.com/grahamonlineedu-wq" target="_blank" class="btn btn-secondary" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
             </div>
 
             <div class="social-icon-grid">
